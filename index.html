@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Add the link to your favicon image -->
+    <link rel="icon" type="image/x-icon" href="img/desktop-wallpaper-dayahsn-on-cositas-cute-anime-cat-cute-kawaii-animals-chibi-cat.jpg">
+    <title>Ecztassy</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-image: url(../img/8db259720d98e98b667c35e87b803100.gif);
+            background-size: cover; /* or background-size: contain; */
+            background-repeat: no-repeat;
+            background-position: center center;
+            position: relative;
+            overflow: hidden; /* Prevent scrolling */
+        }
+
+        .profile-card {
+            background-color: rgba(0, 0, 0, 0.8);
+            color: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            display: flex;
+            animation: floatAnimation 3s infinite alternate;
+            max-width: 800px;
+        }
+
+        .profile-picture {
+            width: 150px;
+            height: 150px;
+            border-radius: 10px;
+            margin-right: 20px;
+            object-fit: cover;
+        }
+
+        .info-box {
+            flex: 1;
+            padding: 10px;
+        }
+
+        h1 {
+            font-size: 28px;
+            margin: 0;
+            margin-bottom: 5px;
+            font-family: 'Abril Fatface', cursive;
+        }
+
+        p {
+            font-size: 16px;
+            margin: 5px 0;
+            font-family: 'Abril Fatface', cursive;
+        }
+
+        .gender-icon {
+            font-size: 20px;
+            margin-left: 5px;
+        }
+
+        .button-link {
+            display: inline-block;
+            padding: 8px 18px;
+            background-color: #363535;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+        }
+
+        .button-link:hover {
+            background-color: #252525;
+        }
+
+        .icons-container {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            display: flex;
+        }
+
+        .icon-link {
+            display: inline-block;
+            margin-left: 10px;
+            color: #fff;
+            text-decoration: none;
+            font-size: 24px;
+            position: relative;
+        }
+
+        .icon-link:hover {
+            color: #aaa;
+        }
+
+        .copy-message {
+            position: absolute;
+            background-color: rgba(0, 0, 0, 0.8);
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 12px;
+            bottom: calc(100% + 5px);
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+        }
+
+        .icon-link:hover .copy-message {
+            opacity: 1;
+        }
+
+        @keyframes floatAnimation {
+            0% {
+                transform: translateY(0);
+            }
+
+            100% {
+                transform: translateY(-10px);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="profile-card">
+        <img src="img/47586d00f4e81bc5a292e2cd113bc829.jpg" alt="Profile Picture" class="profile-picture">
+        <div class="info-box">
+            <h1>Ecztassy</h1>
+            <p>Male <span class="gender-icon">♂️</span></p>
+            <p>Age: 15</p>
+            <p>Personality: INTP / 5w4</p>
+            <p>Created by 4chan and YouTube chaos.</p>
+            <p>Hobbies: Gaming, watching anime, programming ☕</p>
+            <p>Likes: Coffee, animals, and cute stuff 🎧✩°｡⋆⸜</p>
+            <p>Music genres: Industrial rock, metal, JVKE, Joji, Gorillaz and more...</p>
+            <p><a class="button-link"
+                    href="https://open.spotify.com/playlist/3fFAcgqzsAIAJk2esZ2bvt?si=0f936292339542eb">Playlist</a></p>
+        </div>
+    </div>
+
+    <div class="icons-container">
+        <a class="icon-link" href="https://www.instagram.com/ecztassy/" target="_blank">
+            <i class="fab fa-instagram" style="color: #fefefe;"></i>
+        </a>
+        <a class="icon-link" href="https://steamcommunity.com/id/Living_in_a_simulation/" target="_blank">
+            <i class="fab fa-steam" style="color: #ffffff;"></i>
+        </a>
+        <a class="icon-link" href="#" id="discord-icon">
+            <i class="fab fa-discord" style="color: #ffffff;"></i>
+            <span class="copy-message">Copied!</span>
+        </a>
+    </div>
+
+    <script>
+        const discordIcon = document.getElementById('discord-icon');
+
+        discordIcon.addEventListener('click', (event) => {
+            event.preventDefault();
+            const textToCopy = 'ecztassy';
+            const textArea = document.createElement('textarea');
+            textArea.value = textToCopy;
+            document.body.appendChild(textArea);
+            textArea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textArea);
+            discordIcon.querySelector('.copy-message').style.opacity = 1;
+            setTimeout(() => {
+                discordIcon.querySelector('.copy-message').style.opacity = 0;
+            }, 1000);
+        });
+    </script>
+</body>
+
+</html>
