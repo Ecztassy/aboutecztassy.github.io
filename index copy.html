@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/x-icon" href="img/desktop-wallpaper-dayahsn-on-cositas-cute-anime-cat-cute-kawaii-animals-chibi-cat.jpg">
+    <link rel="icon" type="image/x-icon"
+        href="img/desktop-wallpaper-dayahsn-on-cositas-cute-anime-cat-cute-kawaii-animals-chibi-cat.jpg">
     <title>Ecztassy</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <style>
@@ -54,7 +55,7 @@
         .info-box {
             flex: 1;
             padding: 10px;
-            text-align: left; /* Align text to the left */
+            text-align: left;
         }
 
         h1 {
@@ -99,9 +100,7 @@
             right: 10px;
             display: flex;
             align-items: flex-end;
-            /* Align icons to the bottom */
             justify-content: flex-end;
-            /* Align icons to the right */
         }
 
         .icon-link {
@@ -197,6 +196,82 @@
                 margin-top: 10px;
             }
         }
+
+        /* Apply the wave-like animation to each letter in the waveTextAnimated class */
+        .waveTextAnimated {
+            display: inline-block;
+            overflow: hidden;
+            vertical-align: top;
+        }
+
+        .word {
+            display: inline-block;
+        }
+
+        .word span {
+            display: inline-block;
+            animation: wave-text 2s ease-in-out infinite;
+        }
+
+        /* Adjust translateY values to prevent letters from being cut off */
+        .word span:nth-child(1) {
+            animation-delay: 0s;
+            transform: translateY(0.1em);
+        }
+
+        .word span:nth-child(2) {
+            animation-delay: 0.1s;
+            transform: translateY(0.2em);
+        }
+
+        .word span:nth-child(3) {
+            animation-delay: 0.2s;
+            transform: translateY(0.15em);
+        }
+
+        .word span:nth-child(4) {
+            animation-delay: 0.3s;
+            transform: translateY(0.3em);
+        }
+
+        .word span:nth-child(5) {
+            animation-delay: 0.4s;
+            transform: translateY(0.1em);
+        }
+
+        .word span:nth-child(6) {
+            animation-delay: 0.5s;
+            transform: translateY(0.25em);
+        }
+
+        .word span:nth-child(7) {
+            animation-delay: 0.6s;
+            transform: translateY(0.2em);
+        }
+
+        .word span:nth-child(8) {
+            animation-delay: 0.7s;
+            transform: translateY(0.35em);
+        }
+
+        .word span:nth-child(9) {
+            animation-delay: 0.8s;
+            transform: translateY(0.1em);
+        }
+
+        @keyframes wave-text {
+            0% {
+                transform: translateY(0em);
+            }
+
+            50% {
+                transform: translateY(-0.15em);
+            }
+
+            100% {
+                transform: translateY(0em);
+            }
+        }
     </style>
 </head>
 
@@ -212,15 +287,38 @@
             <div class="info-box">
                 <h1>Ecztassy</h1>
                 <p>Homem <span class="gender-icon">♂️</span></p>
-                <p><strong>Idade:</strong> 15</p>
+                <p><strong>Idade:</strong> <span id="age"></span></p>
                 <p><strong>Personalidade:</strong> INTP / 5w4</p>
                 <p><strong>Hobbies:</strong> Jogos, anime e programação ☕</p>
                 <p><strong>Gostos:</strong> café, animais e coisas fofas 🎧✩°｡⋆⸜</p>
                 <p><strong>Gêneros musicais:</strong> Rock Industrial, metal, JVKE, Joji, Gorillaz e outros...</p>
                 <br>
-                <p><strong>Criado no 4chan e no caos do YouTube</strong></p>
+                <p>
+                    <span class="waveTextAnimated">
+                        <span class="word">
+                            <span>C</span><span>r</span><span>i</span><span>a</span><span>d</span><span>o</span>
+                        </span>
+                        <span class="word">
+                            <span>n</span><span>o</span>
+                        </span>
+                        <span class="word">
+                            <span>4</span><span>c</span><span>h</span><span>a</span><span>n</span>
+                        </span>
+                        <span class="word">
+                            <span>e</span>
+                        </span>
+                        <span class="word">
+                            <span>C</span><span>a</span><span>o</span><span>s</span>
+                            <span>d</span><span>o</span>
+                        </span>
+                        <span class="word">
+                            <span>Y</span><span>o</span><span>u</span><span>T</span><span>u</span><span>b</span><span>e</span>
+                        </span>
+                    </span>
+                </p>
                 <p><a class="button-link"
-                        href="https://open.spotify.com/playlist/3fFAcgqzsAIAJk2esZ2bvt?si=0f936292339542eb">Playlist</a></p>
+                        href="https://open.spotify.com/playlist/3fFAcgqzsAIAJk2esZ2bvt?si=0f936292339542eb">Playlist</a>
+                </p>
             </div>
         </div>
 
@@ -254,6 +352,55 @@
                     discordIcon.querySelector('.copy-message').style.opacity = 0;
                 }, 1000);
             });
+
+            // Function to calculate age based on birthdate
+            function calculateAge(birthdate) {
+                const today = new Date();
+                const birthdateObj = new Date(birthdate);
+                let age = today.getFullYear() - birthdateObj.getFullYear();
+                const birthMonth = birthdateObj.getMonth();
+                const birthDay = birthdateObj.getDate();
+
+                // Adjust age if the birthdate hasn't occurred yet this year
+                if (today.getMonth() < birthMonth || (today.getMonth() === birthMonth && today.getDate() < birthDay)) {
+                    age--;
+                }
+
+                return age;
+            }
+
+            // Update the age element with the calculated age
+            function updateAge(birthdate) {
+                const ageElement = document.getElementById('age');
+                ageElement.textContent = calculateAge(birthdate);
+            }
+
+            // Call the updateAge function initially
+            const birthdate = '2007-12-17'; // Placeholder birthdate
+            updateAge(birthdate);
+
+            // Function to check if the birthday has passed this year
+            function hasBirthdayPassed(birthdate) {
+                const today = new Date();
+                const birthMonth = new Date(birthdate).getMonth();
+                const birthDay = new Date(birthdate).getDate();
+                return (
+                    today.getMonth() > birthMonth ||
+                    (today.getMonth() === birthMonth && today.getDate() >= birthDay)
+                );
+            }
+
+            // Update age on every page load and check for birthday
+            if (hasBirthdayPassed(birthdate)) {
+                updateAge(birthdate);
+            }
+
+            // Periodically check and update the age if birthday has passed
+            setInterval(() => {
+                if (hasBirthdayPassed(birthdate)) {
+                    updateAge(birthdate);
+                }
+            }, 24 * 60 * 60 * 1000); // Check every day
         </script>
     </div>
 </body>
