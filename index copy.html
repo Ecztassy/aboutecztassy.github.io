@@ -197,6 +197,48 @@
             }
         }
 
+        .lozenge-tabs {
+            position: fixed;
+            right: -100px;
+            /* Adjust this value as needed */
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            z-index: 2;
+        }
+
+        .tab-container {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+        }
+
+        .tab {
+            width: 120px;
+            /* Adjust the size as needed */
+            height: 60px;
+            /* Adjust the size as needed */
+            background-color: #325c96;
+            /* Adjust the color as needed */
+            color: #b9b9b9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: transform 0.3s, left 0.3s;
+            transform-origin: right center;
+            position: relative;
+            left: 0;
+            /* Initial position */
+        }
+
+        .tab-container:hover .tab {
+            left: -90px;
+            /* Slide to the left on hover */
+        }
+
         /* Apply the wave-like animation to each letter in the waveTextAnimated class */
         .waveTextAnimated {
             display: inline-block;
@@ -276,6 +318,14 @@
 </head>
 
 <body>
+    <div class="lozenge-tabs">
+        <div class="tab-container">
+            <a href="index.html" class="tab" data-section="Home">Home</a>
+        </div>        
+        <div class="tab-container">
+            <a href="ride.html" class="tab" data-section="Have a ride">Estrada</a>
+        </div>        
+    </div>
     <div class="content">
         <div class="language-switcher">
             <a href="index.html" class="language-link" data-lang="en">EN</a>
