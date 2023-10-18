@@ -67,7 +67,7 @@
     <div id='root' class='full-screen-3d-example'></div>
 
     <audio id="backgroundMusic" loop>
-        <source src="audio/Beneath the Mask.mp3" type="audio/mpeg">
+        <source src="audio/Beneath the Mask.mp3" type="audio/mpeg" onloadeddata="setHalfVolume()">
         Your browser does not support the audio element.
     </audio>
 
@@ -81,18 +81,27 @@
     <script src='https://unpkg.com/three@0.146.0/examples/js/objects/Reflector.js'></script>
     <script src='babel.js'></script>
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            var audio = document.getElementById('backgroundMusic');
-            var playPromise = audio.play();
+        function setHalfVolume() {
+            var myAudio = document.getElementById("backgroundMusic");
+            myAudio.volume = 0.11; // You can adjust this value
+        }
 
-            if (playPromise !== undefined) {
-                playPromise.then(function() {
-                    // Autoplay started successfully
-                }).catch(function(error) {
-                    // Autoplay was prevented, show an alert
-                    alert("Click OK to play background music.");
-                });
-            }
+        document.addEventListener("DOMContentLoaded", function () {
+            var audio = document.getElementById('backgroundMusic');
+
+            audio.addEventListener('canplaythrough', function () {
+                setHalfVolume();
+                var playPromise = audio.play();
+
+                if (playPromise !== undefined) {
+                    playPromise.then(function () {
+                        // Autoplay started successfully
+                    }).catch(function (error) {
+                        // Autoplay was prevented, show an alert
+                        alert("Click OK to play background music.");
+                    });
+                }
+            });
         });
     </script>
 </body>
