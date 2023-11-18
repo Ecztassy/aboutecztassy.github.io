@@ -8,338 +8,26 @@
         href="img/desktop-wallpaper-dayahsn-on-cositas-cute-anime-cat-cute-kawaii-animals-chibi-cat.jpg">
     <title>Ecztassy</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-image: url(../img/8db259720d98e98b667c35e87b803100.gif);
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-position: center center;
-            position: relative;
-            overflow: hidden;
-            min-height: 100vh;
-        }
-
-        .content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-            box-sizing: border-box;
-            min-height: 100vh;
-        }
-
-        .profile-card {
-            background-color: rgba(0, 0, 0, 0.8);
-            color: #fff;
-            border-radius: 10px;
-            padding: 20px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-            display: flex;
-            animation: floatAnimation 3s infinite alternate;
-            max-width: 800px;
-            width: 100%;
-        }
-
-        .profile-picture {
-            width: 150px;
-            height: 150px;
-            border-radius: 10px;
-            margin-right: 20px;
-            object-fit: cover;
-        }
-
-        .info-box {
-            flex: 1;
-            padding: 10px;
-            text-align: left;
-        }
-
-        h1 {
-            font-size: 28px;
-            margin: 0;
-            margin-bottom: 5px;
-            font-family: 'Abril Fatface', cursive;
-        }
-
-        p {
-            font-size: 16px;
-            margin: 5px 0;
-            font-family: 'Abril Fatface', cursive;
-        }
-
-        .gender-icon {
-            font-size: 20px;
-            margin-left: 5px;
-        }
-
-        .button-link {
-            font-size: 14px;
-            display: inline-block;
-            padding: 8px 16px;
-            background-color: #363535;
-            color: #fff;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
-            font-weight: bold;
-            border: none;
-            cursor: pointer;
-        }
-
-        .button-link:hover {
-            background-color: #252525;
-        }
-
-        .icons-container {
-            position: absolute;
-            bottom: 10px;
-            right: 10px;
-            display: flex;
-            align-items: flex-end;
-            justify-content: flex-end;
-        }
-
-        .icon-link {
-            font-size: 24px;
-            display: inline-block;
-            margin-left: 10px;
-            color: #fff;
-            text-decoration: none;
-            position: relative;
-        }
-
-        .icon-link:hover {
-            color: #aaa;
-        }
-
-        .copy-message {
-            position: absolute;
-            background-color: rgba(0, 0, 0, 0.8);
-            color: #fff;
-            padding: 5px 10px;
-            border-radius: 5px;
-            font-size: 12px;
-            bottom: calc(100% + 5px);
-            left: 50%;
-            transform: translateX(-50%);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            pointer-events: none;
-        }
-
-        .icon-link:hover .copy-message {
-            opacity: 1;
-        }
-
-        @keyframes floatAnimation {
-            0% {
-                transform: translateY(0);
-            }
-
-            100% {
-                transform: translateY(-10px);
-            }
-        }
-
-        .language-switcher {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            z-index: 1;
-        }
-
-        .language-link {
-            margin: 5px 0;
-            text-decoration: none;
-            color: #fff;
-            font-size: 16px;
-        }
-
-        .language-link:hover {
-            text-decoration: underline;
-        }
+    <link rel="stylesheet" href="/style.css">
 
 
-        @media (max-width: 320px) {
-            .profile-card {
-                flex-direction: column;
-                padding: 10px;
-                max-width: 100%;
-            }
-
-            .profile-picture {
-                width: 100%;
-                height: auto;
-                margin-right: 0;
-                margin-bottom: 10px;
-            }
-
-            .info-box {
-                padding: 10px 0;
-            }
-
-            .icons-container {
-                position: static;
-                display: block;
-                margin-top: 10px;
-                text-align: center;
-                width: 100%;
-                box-sizing: border-box;
-            }
-
-            .language-switcher {
-                position: static;
-                text-align: center;
-                margin-top: 10px;
-            }
-        }
-
-        .lozenge-tabs {
-            position: fixed;
-            right: -100px;
-            /* Adjust this value as needed */
-            top: 50%;
-            transform: translateY(-50%);
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-            z-index: 2;
-        }
-
-        .tab-container {
-            display: flex;
-            align-items: center;
-            justify-content: flex-end;
-        }
-
-        .tab {
-            width: 120px;
-            /* Adjust the size as needed */
-            height: 60px;
-            /* Adjust the size as needed */
-            background-color: #325c96;
-            /* Adjust the color as needed */
-            color: #b9b9b9;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: transform 0.3s, left 0.3s;
-            transform-origin: right center;
-            position: relative;
-            left: 0;
-            /* Initial position */
-        }
-
-        .tab-container:hover .tab {
-            left: -90px;
-            /* Slide to the left on hover */
-        }
-
-
-
-
-        /* Apply the wave-like animation to each letter in the waveTextAnimated class */
-        .waveTextAnimated {
-            display: inline-block;
-            overflow: hidden;
-            vertical-align: top;
-        }
-
-        .word {
-            display: inline-block;
-        }
-
-        .word span {
-            display: inline-block;
-            animation: wave-text 2s ease-in-out infinite;
-        }
-
-        /* Adjust translateY values to prevent letters from being cut off */
-        .word span:nth-child(1) {
-            animation-delay: 0s;
-            transform: translateY(0.1em);
-        }
-
-        .word span:nth-child(2) {
-            animation-delay: 0.1s;
-            transform: translateY(0.2em);
-        }
-
-        .word span:nth-child(3) {
-            animation-delay: 0.2s;
-            transform: translateY(0.15em);
-        }
-
-        .word span:nth-child(4) {
-            animation-delay: 0.3s;
-            transform: translateY(0.3em);
-        }
-
-        .word span:nth-child(5) {
-            animation-delay: 0.4s;
-            transform: translateY(0.1em);
-        }
-
-        .word span:nth-child(6) {
-            animation-delay: 0.5s;
-            transform: translateY(0.25em);
-        }
-
-        .word span:nth-child(7) {
-            animation-delay: 0.6s;
-            transform: translateY(0.2em);
-        }
-
-        .word span:nth-child(8) {
-            animation-delay: 0.7s;
-            transform: translateY(0.35em);
-        }
-
-        .word span:nth-child(9) {
-            animation-delay: 0.8s;
-            transform: translateY(0.1em);
-        }
-
-        @keyframes wave-text {
-            0% {
-                transform: translateY(0em);
-            }
-
-            50% {
-                transform: translateY(-0.15em);
-            }
-
-            100% {
-                transform: translateY(0em);
-            }
-        }
-    </style>
 </head>
 
 <body>
-    <div class="lozenge-tabs">
-        <div class="tab-container">
-            <a href="index.html" class="tab" data-section="Home">Home</a>
-        </div>        
-        <div class="tab-container">
-            <a href="ride.html" class="tab" data-section="Have a ride">About</a>
-        </div>        
-    </div>
-    <div class="content">
-        <div class="language-switcher">
-            <a href="index.html" class="language-link" data-lang="en">EN</a>
-            <a href="index copy.html" class="language-link" data-lang="pt">PT</a>
+    <div class="header">
+        <img src="img/ezgif-1-bc68b1d68a.gif" alt="Hamburger Menu" class="hamburger-menu-img" onclick="toggleMenu()">
+        <div class="menu-links" id="menuLinks">
+            <a href="index.html" class="menu-link" data-section="Home">Home</a>
+            <a href="ride.html" class="menu-link" data-section="Have a ride">Ride</a>
         </div>
+    </div>
+    <div id="background"></div>
+    <div class="content">
         <div class="profile-card">
             <img src="img/47586d00f4e81bc5a292e2cd113bc829.jpg" alt="Profile Picture" class="profile-picture">
             <div class="info-box">
                 <h1>Ecztassy</h1>
-                <p>Male <span class="gender-icon">♂️</span></p>
+                <p><strong>Male</strong> <span class="gender-icon">♂️</span></p>
                 <p><strong>Age:</strong> <span id="age"></span></p>
                 <p><strong>Personality:</strong> INTP / 5w4</p>
                 <p><strong>Hobbies:</strong> Gaming, watching anime, programming ☕</p>
@@ -362,7 +50,9 @@
                         </span>
                         <span class="word">
                             <span>Y</span><span>o</span><span>u</span><span>T</span><span>u</span><span>b</span><span>e</span>
-                            <span>c</span><span>h</span><span>a</span><span>o</span><span>s</span>
+                            <span class="word">
+                                <span>c</span><span>h</span><span>a</span><span>o</span><span>s</span>
+                            </span>
                         </span>
                     </span>
                 </p>
@@ -385,88 +75,10 @@
             </a>
         </div>
 
-        <script>
-            const discordIcon = document.getElementById('discord-icon');
-
-            discordIcon.addEventListener('click', (event) => {
-                event.preventDefault();
-                const textToCopy = 'ecztassy';
-                const textArea = document.createElement('textarea');
-                textArea.value = textToCopy;
-                document.body.appendChild(textArea);
-                textArea.select();
-                document.execCommand('copy');
-                document.body.removeChild(textArea);
-                discordIcon.querySelector('.copy-message').style.opacity = 1;
-                setTimeout(() => {
-                    discordIcon.querySelector('.copy-message').style.opacity = 0;
-                }, 1000);
-            });
 
 
-
-            // Function to calculate age based on birthdate
-            function calculateAge(birthdate) {
-                const today = new Date();
-                const birthdateObj = new Date(birthdate);
-                let age = today.getFullYear() - birthdateObj.getFullYear();
-                const birthMonth = birthdateObj.getMonth();
-                const birthDay = birthdateObj.getDate();
-
-                // Adjust age if the birthdate hasn't occurred yet this year
-                if (today.getMonth() < birthMonth || (today.getMonth() === birthMonth && today.getDate() < birthDay)) {
-                    age--;
-                }
-
-                return age;
-            }
-
-            // Update the age element with the calculated age
-            function updateAge(birthdate) {
-                const ageElement = document.getElementById('age');
-                ageElement.textContent = calculateAge(birthdate);
-            }
-
-            // Call the updateAge function initially
-            const birthdate = '2007-12-17'; // Placeholder birthdate
-            updateAge(birthdate);
-
-            // Function to check if the birthday has passed this year
-            function hasBirthdayPassed(birthdate) {
-                const today = new Date();
-                const birthMonth = new Date(birthdate).getMonth();
-                const birthDay = new Date(birthdate).getDate();
-                return (
-                    today.getMonth() > birthMonth ||
-                    (today.getMonth() === birthMonth && today.getDate() >= birthDay)
-                );
-            }
-
-            // Update age on every page load and check for birthday
-            if (hasBirthdayPassed(birthdate)) {
-                updateAge(birthdate);
-            }
-
-            // Periodically check and update the age if birthday has passed
-            setInterval(() => {
-                if (hasBirthdayPassed(birthdate)) {
-                    updateAge(birthdate);
-                }
-            }, 24 * 60 * 60 * 1000); // Check every day
-
-            const tabs = document.querySelectorAll('.tab');
-
-            tabs.forEach(tab => {
-                const sectionName = tab.getAttribute('data-section');
-                tab.addEventListener('mouseover', () => {
-                    tab.textContent = sectionName;
-                });
-                tab.addEventListener('mouseout', () => {
-                    tab.textContent = '';
-                });
-            });
-
-        </script>
+        <script src='script.js' defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/vibrant.js/1.0.0/Vibrant.min.js" defer></script>
     </div>
 </body>
 
