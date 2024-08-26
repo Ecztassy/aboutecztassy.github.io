@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="img/desktop-wallpaper-dayahsn-on-cositas-cute-anime-cat-cute-kawaii-animals-chibi-cat.jpg">
+    <title>Ecztassy</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="/styles/style.css">
+    <style>
+        /* Basic styles for the modal */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed;
+            z-index: 1; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgba(0,0,0,0.4); /* Black background with opacity */
+        }
+
+        .modal-content {
+            background-color: #000000;
+            margin: 15% auto; /* 15% from the top and centered */
+            padding: 20px;
+            width: 80%; /* Could be more or less, depending on screen size */
+            max-width: 500px;
+        }
+
+        .modal-content p {
+            color: white;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: rgb(255, 0, 0);
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .modal-button {
+            background-color: #4CAF50; /* Green */
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 10px 2px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .modal-button:hover {
+            background-color: #45a049;
+        }
+
+        .no-thanks-button {
+            background-color: #f44336; /* Red */
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 10px 2px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .no-thanks-button:hover {
+            background-color: #e53935;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <img id="gif-menu" src="img/3u0hkzmg49r71.gif" alt="Hamburger Menu" class="hamburger-menu-img">
+    </div>
+
+    <div id="background"></div>
+
+    <div class="content">
+        <div class="profile-card">
+            <img src="img/1621543882119425977.png" alt="Profile Picture" class="profile-picture">
+            <div class="info-box">
+                <h1>Ecztassy</h1>
+                <p><strong>Male</strong> <span class="gender-icon">♂️</span></p>
+                <p><strong>Age:</strong> <span id="age"></span></p>
+                <p><strong>Personality:</strong> INTP / 5w4</p>
+                <p><strong>Hobbies:</strong> Gaming,rpg maker horror, watching anime, internet stuff and programming ☕</p>
+                <p><strong>Likes:</strong> Coffee, animals, and cute stuff 🎧✩°｡⋆⸜</p>
+                <p><strong>Music genres:</strong> Industrial rock, metal, JVKE, Joji, Gorillaz and more...</p>
+                <br>
+                <p>
+                    <span class="waveTextAnimated">
+                        <span class="word">
+                            <span>C</span><span>r</span><span>e</span><span>a</span><span>t</span><span>e</span><span>d</span>
+                        </span>
+                        <span class="word">
+                            <span>b</span><span>y</span>
+                        </span>
+                        <span class="word">
+                            <span>4</span><span>c</span><span>h</span><span>a</span><span>n</span>
+                        </span>
+                        <span class="word">
+                            <span>a</span><span>n</span><span>d</span>
+                        </span>
+                        <span class="word">
+                            <span>Y</span><span>o</span><span>u</span><span>T</span><span>u</span><span>b</span><span>e</span>
+                        </span>
+                        <span class="word">
+                            <span>c</span><span>h</span><span>a</span><span>o</span><span>s</span>
+                        </span>
+                    </span>
+                </p>
+            </div>
+        </div>
+
+        <div class="widget-div">
+            <div id="last-anime-widget" class="last-anime-widget"></div>
+        </div>
+
+        <div class="icons-container">
+            <a class="icon-link" href="https://www.instagram.com/ecztassy/" target="_blank">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a class="icon-link" href="https://github.com/Ecztassy" target="_blank">
+                <i class="fab fa-github"></i>
+            </a>
+            <a class="icon-link" href="https://steamcommunity.com/id/CrazynessIsTheKey/" target="_blank">
+                <i class="fab fa-steam"></i>
+            </a>
+            <a class="icon-link" href="https://discord.com/" id="discord-icon">
+                <i class="fab fa-discord"></i>
+                <span class="copy-message">Copied!</span>
+            </a>
+            <!-- New Spotify and MySpace Icons -->
+            <a class="icon-link" href="https://open.spotify.com/user/31ofiy4tfdrv7ek4gv3gyu7pjonm?si=7b7ab7e43cd44eaa" target="_blank">
+                <i class="fab fa-spotify"></i>
+            </a>
+            <a class="icon-link" href="https://spacehey.com/ecztassy_" target="_blank">
+                <i class="fas fa-user"></i>
+            </a>            
+        </div>
+    </div>
+
+    <audio id="background-audio" src="audio/ost.mp3"></audio>
+    
+    <!-- Modal HTML -->
+    <div id="audio-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p>This website is asking for autoplay and audio permissions.</p>
+            <p>To fully experience the site, please interact with the page to enable autoplay and sound.</p>
+            <button class="modal-button" id="grant-permission-button">Enable Audio</button>
+            <button class="no-thanks-button" id="no-thanks-button">No Thanks</button>
+        </div>
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const audio = document.getElementById('background-audio');
+            const modal = document.getElementById('audio-modal');
+            const closeBtn = document.querySelector('.close');
+            const grantButton = document.getElementById('grant-permission-button');
+            const noThanksButton = document.getElementById('no-thanks-button');
+            const gifMenu = document.getElementById('gif-menu');
+
+            function setCookie(name, value, days) {
+                const d = new Date();
+                d.setTime(d.getTime() + (days * 24 * 60 * 60 * 1000));
+                let expires = "expires=" + d.toUTCString();
+                document.cookie = name + "=" + (value || "") + ";" + expires + ";path=/";
+            }
+
+            function getCookie(name) {
+                let nameEQ = name + "=";
+                let ca = document.cookie.split(';');
+                for(let i = 0; i < ca.length; i++) {
+                    let c = ca[i];
+                    while (c.charAt(0) === ' ') c = c.substring(1);
+                    if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
+                }
+                return null;
+            }
+
+            function playAudio() {
+                const playPromise = audio.play();
+
+                if (playPromise !== undefined) {
+                    playPromise.then(() => {
+                        // Autoplay started successfully
+                        modal.style.display = 'none'; 
+                    }).catch((error) => {
+                        // Autoplay was prevented
+                        modal.style.display = 'block'; 
+                    });
+                }
+            }
+
+            // Check if user has already made a choice
+            const userChoice = getCookie('audio-permission');
+
+            if (userChoice === 'granted') {
+                playAudio();
+            } else if (userChoice === 'denied') {
+                // User chose not to enable audio; do nothing
+            } else {
+                // No cookie found; show the modal
+                modal.style.display = 'block';
+            }
+
+            // Close the modal when the user clicks the close button
+            closeBtn.onclick = function() {
+                modal.style.display = 'none';
+            }
+
+            // Allow audio play when the user clicks the button in the modal
+            grantButton.onclick = function() {
+                playAudio();
+                setCookie('audio-permission', 'granted', 30); // Set cookie for 30 days
+                modal.style.display = 'none';
+            }
+
+            // Close the modal and continue without audio when the user clicks "No Thanks"
+            noThanksButton.onclick = function() {
+                setCookie('audio-permission', 'denied', 30); // Set cookie for 30 days
+                modal.style.display = 'none';
+            }
+
+            // Show the modal if the GIF is clicked
+            gifMenu.onclick = function() {
+                modal.style.display = 'block';
+            }
+
+            // Close the modal if the user clicks outside of it
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                    modal.style.display = 'none';
+                }
+            }
+        });
+    </script>
+    
+    <script src='/js/script.js' defer></script>
+    <script src="/js/anilist.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,583 @@
+/* Ensuring full viewport height is used */
+.content,
+body {
+    min-height: 100vh;
+    overflow-x: hidden; /* Prevent horizontal overflow */
+}
+
+/* Flexbox layout for profile card */
+.content,
+.profile-card {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+/* Widget container styles */
+.widget-div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    bottom: 17%;
+    width: 100%;
+}
+
+/* Anime widget styles */
+.last-anime-widget {
+    background-color: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    max-width: 760px;
+    width: 100%;
+    padding: 20px;
+    margin-top: 18px;
+}
+
+/* Widget content layout */
+.widget-content {
+    display: flex;
+    align-items: center;
+}
+
+/* Anime widget image styling */
+.widget-img {
+    max-width: 150px;
+    border-radius: 10px;
+    margin-right: 20px;
+}
+
+.widget-title p {
+    margin-bottom: 10px;
+    font-size: 22px;
+}
+
+.widget-info {
+    flex: 1;
+    font-size: 16px;
+}
+
+.widget-info p {
+    margin: 5px 0;
+}
+
+.widget-info strong {
+    font-weight: bold;
+}
+
+.last-anime-widget img {
+    max-width: 100%;
+    border-radius: 10px;
+}
+
+/* Link and button styling */
+.button-link,
+.icon-link,
+.menu-link {
+    text-decoration: none;
+}
+
+.button-link {
+    font-size: 14px;
+    display: inline-block;
+    padding: 8px 16px;
+    color: #fff;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    font-weight: 700;
+    border: none;
+    cursor: pointer;
+    background-color: #252525;
+}
+
+.icon-link {
+    font-size: 24px;
+    display: inline-block;
+    margin-left: 10px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    color: #aaa;
+}
+
+.icon-link:hover {
+    transform: translateY(-5px) scale(1.1);
+}
+
+.icon-link:active {
+    transform: translateY(0) scale(1);
+    box-shadow: none;
+}
+
+.copy-message {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 12px;
+    bottom: calc(100% + 5px);
+    left: 50%;
+    transform: translateX(-50%);
+    transition: opacity 0.3s;
+    pointer-events: none;
+    opacity: 0;
+}
+
+.icon-link .copy-message {
+    opacity: 1;
+}
+
+/* Background styling */
+#background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+/* General body and font styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    overflow-x: hidden; /* Prevent horizontal overflow */
+}
+
+h1,
+p {
+    font-family: "Abril Fatface", cursive;
+}
+
+h1 {
+    font-size: 28px;
+    margin: 0 0 5px;
+}
+
+p {
+    font-size: 16px;
+    margin: 5px 0;
+}
+
+.gender-icon {
+    font-size: 20px;
+    margin-left: 5px;
+}
+
+/* Profile card styling */
+.profile-card {
+    background-color: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    max-width: 800px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.profile-picture {
+    width: 150px;
+    height: 150px;
+    border-radius: 10px;
+    margin-right: 20px;
+    object-fit: cover;
+}
+
+.info-box {
+    flex: 1;
+    padding: 10px;
+    text-align: left;
+    word-wrap: break-word;
+    width: 90%;
+}
+
+/* Floating animation for larger screens */
+@media (min-width: 601px) {
+    .profile-card {
+        animation: 3s infinite alternate floatAnimation;
+    }
+}
+
+/* Icons container positioning */
+.icons-container {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    margin-top: 17px;
+}
+
+/* Header and menu styling */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 3;
+}
+
+.hamburger-menu-img {
+    width: 106px;
+    height: 64px;
+    cursor: pointer;
+}
+
+.menu-links {
+    display: none;
+    position: fixed;
+    top: 75px;
+    right: 15px;
+    flex-direction: column;
+    background: 0 0;
+    z-index: 2;
+    opacity: 0;
+    animation: 0.5s forwards fadeIn;
+}
+
+.menu-link {
+    position: relative;
+    font-size: 20px;
+    padding: 6px;
+    color: #fff;
+    margin-right: 20px;
+}
+
+.menu-link::after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background-color: #fff;
+    bottom: 0;
+    left: 0;
+    transition: width 0.3s ease-in-out;
+}
+
+.menu-link:hover::after {
+    width: 100%;
+}
+
+/* Animation for floating */
+@keyframes floatAnimation {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-10px);
+    }
+}
+
+/* Wave text animation */
+.waveTextAnimated {
+    overflow: hidden;
+    vertical-align: top;
+}
+
+.word span {
+    display: inline-block;
+    animation: 2s ease-in-out infinite wave-text;
+}
+
+.word span:first-child {
+    animation-delay: 0.2s;
+}
+
+.word span:nth-child(2) {
+    animation-delay: 0.4s;
+}
+
+.word span:nth-child(3) {
+    animation-delay: 0.6s;
+}
+
+.word span:nth-child(4) {
+    animation-delay: 0.8s;
+}
+
+.word span:nth-child(5) {
+    animation-delay: 1s;
+}
+
+.word span:nth-child(6) {
+    animation-delay: 1.2s;
+}
+
+.word span:nth-child(7) {
+    animation-delay: 1.4s;
+}
+
+.word span:nth-child(8) {
+    animation-delay: 1.6s;
+}
+
+.word span:nth-child(9) {
+    animation-delay: 1.8s;
+}
+
+.word span:nth-child(10) {
+    animation-delay: 2s;
+}
+
+.word span:nth-child(11) {
+    animation-delay: 2.2s;
+}
+
+.word span:nth-child(12) {
+    animation-delay: 2.4s;
+}
+
+.word span:nth-child(13) {
+    animation-delay: 2.6s;
+}
+
+.word span:nth-child(14) {
+    animation-delay: 2.8s;
+}
+
+.word span:nth-child(15) {
+    animation-delay: 3s;
+}
+
+.word span:nth-child(16) {
+    animation-delay: 3.2s;
+}
+
+.word span:nth-child(17) {
+    animation-delay: 3.4s;
+}
+
+.word span:nth-child(18) {
+    animation-delay: 3.6s;
+}
+
+.word span:nth-child(19) {
+    animation-delay: 3.8s;
+}
+
+.word span:nth-child(20) {
+    animation-delay: 4s;
+}
+
+.word span:nth-child(21) {
+    animation-delay: 4.2s;
+}
+
+.word span:nth-child(22) {
+    animation-delay: 4.4s;
+}
+
+.word span:nth-child(23) {
+    animation-delay: 4.6s;
+}
+
+.word span:nth-child(24) {
+    animation-delay: 4.8s;
+}
+
+.word span:nth-child(25) {
+    animation-delay: 5s;
+}
+
+.word span:nth-child(26) {
+    animation-delay: 5.2s;
+}
+
+.word span:nth-child(27) {
+    animation-delay: 5.4s;
+}
+
+.word span:nth-child(28) {
+    animation-delay: 5.6s;
+}
+
+.word span:nth-child(29) {
+    animation-delay: 5.8s;
+}
+
+.word span:nth-child(30) {
+    animation-delay: 6s;
+}
+
+.word span:nth-child(31) {
+    animation-delay: 6.2s;
+}
+
+.word span:nth-child(32) {
+    animation-delay: 6.4s;
+}
+
+.word span:nth-child(33) {
+    animation-delay: 6.6s;
+}
+
+.word span:nth-child(34) {
+    animation-delay: 6.8s;
+}
+
+.word span:nth-child(35) {
+    animation-delay: 7s;
+}
+
+.word span:nth-child(36) {
+    animation-delay: 7.2s;
+}
+
+/* Keyframes for wave-text animation */
+@keyframes wave-text {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-0.15em);
+    }
+}
+
+/* Responsive styles for smaller screens */
+@media (max-width: 610px) {
+    body {
+        overflow: auto; /* Ensure scrollability */
+    }
+
+    .profile-card {
+        padding: 10px;
+        max-width: 100%;
+        /* Removed min-height as per request */
+    }
+    
+    p {
+        font-size: 15px;
+        margin: 5px 0;
+        font-family: "Abril Fatface", cursive;
+    }
+
+    .profile-picture {
+        width: 100px;
+        height: 100px;
+        margin-right: 10px;
+    }
+
+    .info-box {
+        padding: 10px 0;
+    }
+
+
+    .icons-container {
+        position: static;
+        display: block;
+        margin-top: 10px;
+        text-align: center;
+        width: 100%;
+        box-sizing: border-box;
+        justify-content: center;
+    }
+
+    .icon-link {
+        font-size: 20px;
+    }
+
+    .button-link {
+        margin-top: 10px;
+        font-size: 12px;
+        padding: 6px 12px;
+    }
+
+    .menu-links {
+        top: 0;
+        left: 15px;
+        width: 22%;
+    }
+
+    .hamburger-menu-img {
+        margin-right: 20px;
+    }
+}
+
+/* Ensuring landscape mode on mobile displays correctly */
+@media screen and (max-height: 480px) and (orientation: landscape) {
+    body {
+        overflow: auto; /* Ensure scrollability */
+    }
+
+    .profile-card {
+        flex-direction: row;
+        padding: 20px;
+        /* Removed min-height as per request */
+    }
+
+    .profile-picture {
+        width: 80px;
+        height: 80px;
+        margin-right: 10px;
+    }
+
+    .info-box {
+        padding: 5px 0;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    p {
+        font-size: 14px;
+    }
+
+    .icons-container {
+        position: static;
+        display: block;
+        margin-top: 5px;
+        text-align: center;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .icon-link {
+        font-size: 18px;
+    }
+
+    .button-link {
+        margin-top: 5px;
+        font-size: 10px;
+        padding: 4px 8px;
+    }
+
+    .hamburger-menu-img {
+        width: 50px;
+        height: 50px;
+    }
+}
+
+/* Large landscape screens positioning */
+@media screen and (min-width: 1263px) and (orientation: landscape) {
+    .icons-container {
+        position: fixed;
+        bottom: 20px; /* Distance from bottom */
+        right: 20px; /* Distance from right */
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        margin-top: 0; /* Reset margin-top */
+        text-align: right;
+        width: auto; /* Adjust width if necessary */
+        box-sizing: border-box;
+    }
+}
+@media screen and (max-width: 960px){
+    .header {
+        opacity: 0%;
+    }
+}

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="img/desktop-wallpaper-dayahsn-on-cositas-cute-anime-cat-cute-kawaii-animals-chibi-cat.jpg">
+    <title>Ride</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            overflow: hidden;
+            background: #000;
+        }
+
+        .full-screen-3d-example {
+            opacity: 0;
+            transition: opacity 1s ease-out;
+        }
+
+        .full-screen-3d-example.-loaded {
+            opacity: 1;
+        }
+
+        .back-button {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: #5200E8;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            font-family: Arial, sans-serif;
+            text-decoration: none;
+            transition: background-color 0.3s, transform 0.3s;
+            display: flex;
+            align-items: center;
+        }
+
+        .back-button:hover {
+            background-color: #5C00FF;
+            transform: scale(1.05);
+        }
+
+        .back-button .icon {
+            margin-right: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <a href="/" class="back-button">
+        <span class="icon">←</span>Home
+    </a>
+    <div id='root' class='full-screen-3d-example'></div>
+
+    <audio class="backgroundMusic" id="backgroundMusic">
+        <source src="audio/themask.mp3" type="audio/mpeg">
+    </audio>
+
+    <script src='https://unpkg.com/three@0.146.0/build/three.min.js'></script>
+    <script src='https://unpkg.com/three@0.146.0/examples/js/postprocessing/EffectComposer.js'></script>
+    <script src='https://unpkg.com/three@0.146.0/examples/js/postprocessing/ShaderPass.js'></script>
+    <script src='https://unpkg.com/three@0.146.0/examples/js/shaders/CopyShader.js'></script>
+    <script src='https://unpkg.com/three@0.146.0/examples/js/postprocessing/RenderPass.js'></script>
+    <script src='https://unpkg.com/three@0.146.0/examples/js/shaders/LuminosityHighPassShader.js'></script>
+    <script src='https://unpkg.com/three@0.146.0/examples/js/postprocessing/UnrealBloomPass.js'></script>
+    <script src='https://unpkg.com/three@0.146.0/examples/js/objects/Reflector.js'></script>
+    <script src='/js/ride.js'></script>
+    <script>
+        function setHalfVolume() {
+            var myAudio = document.getElementById("backgroundMusic");
+            myAudio.volume = 0.11;
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            var audio = document.getElementById('backgroundMusic');
+            setHalfVolume();
+            audio.play().catch(function(error) {
+                console.error(error)
+            });
+        });
+
+        document.addEventListener("DOMContentLoaded", function() {
+            var audio = document.getElementById('backgroundMusic');
+            audio.addEventListener('loadedmetadata', function() {
+                setHalfVolume();
+                var playPromise = audio.play();
+                if (playPromise !== undefined) {
+                    playPromise.then(function() {}).catch(function(error) {
+                        if (confirm("Click OK to play background music.")) {
+                            // Change browser site configs to allow sound
+                            audio.play();
+                        }
+                    })
+                }
+            })
+        });
+
+        window.addEventListener('beforeunload', function(e) {
+            e.preventDefault();
+            e.returnValue = ''
+        })
+    </script>
+</body>
+
+</html>
